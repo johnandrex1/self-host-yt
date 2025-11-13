@@ -11,14 +11,8 @@
   </style>
 </head>
 <body>
-  <iframe
-    id="player"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-    allowfullscreen
-    referrerpolicy="strict-origin-when-cross-origin"
-  ></iframe>
-  
-  <script>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/5XhxR9Vs6zc?si=LU7wJLoqiIkzzcqx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <!-- <script>
     const u = new URL(location.href);
     const v = u.searchParams.get('v');
     const base = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(v || '');
@@ -32,6 +26,6 @@
     });
     if (!v) document.body.textContent = 'Missing ?v=VIDEO_ID';
     else document.getElementById('player').src = `${base}?${params}`;
-  </script>
+  </script> -->
 </body>
 </html>
