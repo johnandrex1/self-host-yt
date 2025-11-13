@@ -11,21 +11,28 @@
   </style>
 </head>
 <body>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/5XhxR9Vs6zc?si=LU7wJLoqiIkzzcqx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <!-- <script>
-    const u = new URL(location.href);
-    const v = u.searchParams.get('v');
-    const base = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(v || '');
-    const params = new URLSearchParams({
-      enablejsapi: '1',
-      rel: '0',
-      modestbranding: '1',
-      playsinline: u.searchParams.get('playsinline') || '1',
-      autoplay: u.searchParams.get('autoplay') || '0',
-      origin: location.origin
-    });
-    if (!v) document.body.textContent = 'Missing ?v=VIDEO_ID';
-    else document.getElementById('player').src = `${base}?${params}`;
-  </script> -->
+  <script>
+    // Get the YouTube video ID from the query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoId = urlParams.get('yt');
+    
+    if (videoId) {
+      // Create and append the iframe with the YouTube video
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      iframe.title = 'YouTube video player';
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.allowFullscreen = true;
+      document.body.appendChild(iframe);
+    } else {
+      // Display a message if no video ID is provided
+      const message = document.createElement('div');
+      message.style.cssText = 'color: white; text-align: center; padding: 50px; font-family: Arial, sans-serif;';
+      message.innerHTML = '<h1>YouTube Embed Relay</h1><p>Add ?yt=VIDEO_ID to the URL to watch a video</p><p>Example: ?yt=dQw4w9WgXcQ</p>';
+      document.body.appendChild(message);
+    }
+  </script>
 </body>
 </html>
